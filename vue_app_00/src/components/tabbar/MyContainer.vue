@@ -47,18 +47,30 @@
             </div> 
         </div>
 
-        <div class="my-gd">
-            <div class="jt"></div>
+        <div class="my-gd" @click="itemMenu($event)">
+            <!--  :class="faile==1?'as':'bs'" -->
+            <div class="jt bs"></div>
             <div class="my-gd-list">
-                <span>我创建的歌单</span>
-                <img src="../../img/icon-5.png" alt="" @click="shezhi('我创建的歌单')">
+                <span>我创建的歌单（1）</span>
+                <img src="../../img/icon-5.png"  @click.stop="shezhi('我创建的歌单')">
             </div>
         </div>
-        <div class="my-gd ">
-            <div class="jt"></div>
+        <ul class="mui-table-view">
+            <li class="mui-table-view-cell mui-media">
+                <img class="mui-media-object mui-pull-left" src="../../img/like2.png">
+                <div class="mui-media-body">
+                    我喜欢的音乐
+                    <p class='mui-ellipsis'>35首</p>
+                </div>
+            </li>
+        </ul>
+
+        <div class="my-gd" @click="itemMenu($event)">
+            <!--  :class="faile==1?'as':'bs'" -->
+            <div class="jt bs"></div>
             <div class="my-gd-list">
-                <span>我收藏的歌单</span>
-                <img src="../../img/icon-5.png" alt="" @click="shezhi('我收藏的歌单')">
+                <span>我收藏的歌单（1）</span>
+                <img src="../../img/icon-5.png" alt="" @click.stop="shezhi('我收藏的歌单',$event)">
             </div>
         </div>
         <div class="delete" v-show="isShow" @click="unshow" >
@@ -78,26 +90,37 @@
 </template>
 
 <script>
- import {Toast} from "mint-ui";
+import { Toast } from "mint-ui";
 export default {
   data() {
-      return {
-      isShow:false,
-      text:[]
+    return {
+      //   0 收回  1展示
+      faile: 0,
+      isShow: false,
+      text: []
     };
   },
   methods: {
-      shezhi(e){
-            this.text=e
-            this.isShow=!this.isShow;
-      },
-      unshow(){
-          this.isShow=!this.isShow;
-      },
-      sc(){
-          Toast("删除成功！")
+    shezhi(str, e) {
+      this.text = str;
+      this.isShow = !this.isShow;
+    },
+    unshow() {
+      this.isShow = !this.isShow;
+    },
+    sc() {
+      Toast("删除成功！");
+    },
+    itemMenu(e) {
+      var gg = e.currentTarget.children[0].classList;
+      if (gg.value.indexOf("bs") != -1) {
+        gg.remove("bs");
+        gg.add("as");
+      } else {
+        gg.remove("as");
+        gg.add("bs");
       }
-      
+    }
   },
   created() {}
 };
@@ -105,58 +128,57 @@ export default {
 
 <style>
 /* 动画速度 */
-.animated{
-    animation-duration: 0.4s !important;
+.animated {
+  animation-duration: 0.4s !important;
 }
 
 /*my-head*/
-.my-head{
-    background-color: #D43C33;
-    height: 65px;
-    width: 100%;
-   /* position:fixed;
+.my-head {
+  background-color: #d43c33;
+  height: 65px;
+  width: 100%;
+  /* position:fixed;
     top: 0;
     left: 0;*/
 }
-.my-head>div{
-    /*margin-top:30px;*/
-    padding-top:30px;
-    
-    margin-left:3%;
-    margin-right:3%;
-    color: white;
-    font-size: 15px; 
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+.my-head > div {
+  /*margin-top:30px;*/
+  padding-top: 30px;
+
+  margin-left: 3%;
+  margin-right: 3%;
+  color: white;
+  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 /*删除*/
 .delete {
   position: fixed;
   top: 0;
   left: 0;
-  background: rgba(0,0,0,0.5);
+  background: rgba(0, 0, 0, 0.5);
   width: 100%;
   height: 100%;
   z-index: 999;
 }
-.delete-bt{
-    position: fixed;
-    top: 80%;
-    left: 0;
-    background-color:white;
-    width: 100%;
-    height: 20%;
-
+.delete-bt {
+  position: fixed;
+  top: 80%;
+  left: 0;
+  background-color: white;
+  width: 100%;
+  height: 25%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 /*删除 的标题*/
-.delete-title{
-    display: block;
-    margin-top: 20px;
-    margin-left: 15px;
-    font-size: 14px;
-
-
+.delete-title {
+  display: block;
+  margin-top: 20px;
+  margin-left: 15px;
+  font-size: 14px;
 }
 
 .my-list {
@@ -208,6 +230,16 @@ export default {
   border-top: 3px solid #ccc;
   border-right: 3px solid #ccc;
   transform: rotate(45deg);
+}
+
+.as::after {
+  transform: rotate(135deg);
+  transition: all 0.2s ease-in-out;
+}
+
+.bs::after {
+  transform: rotate(45deg);
+  transition: all 0.2s ease-in-out;
 }
 /*my-gd*/
 .my-gd {
