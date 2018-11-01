@@ -9,6 +9,7 @@ import VideoContainer from "./components/tabbar/VideoContainer"
 import MyContainer from "./components/tabbar/MyContainer"
 import FriendContainer from "./components/tabbar/FriendContainer"
 import AccountCotainer from "./components/tabbar/AccountContainer"
+import MymusicContainer from "./components/subcomponents/MymusicContainer"
 
 Vue.use(Router)
 
@@ -22,5 +23,6 @@ export default new Router({
     {path:'/my',component:MyContainer},
     {path:'/friend',component:FriendContainer},
     {path:'/account',component:AccountCotainer},
+    {path:'/mymusic',component:MymusicContainer}
   ],linkActiveClass:"mui-active"
 })

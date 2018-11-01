@@ -55,16 +55,17 @@
                 <img src="../../img/icon-5.png"  @click.stop="shezhi('我创建的歌单')">
             </div>
         </div>
-        <ul class="mui-table-view">
+        <router-link  to="/mymusic">
+        <ul class="mui-table-view"  v-show="ishow">
             <li class="mui-table-view-cell mui-media">
                 <img class="mui-media-object mui-pull-left" src="../../img/like2.png">
-                <div class="mui-media-body">
+                <div class="mui-media-body" style="color:black">
                     我喜欢的音乐
                     <p class='mui-ellipsis'>35首</p>
                 </div>
             </li>
         </ul>
-
+         </router-link>
         <div class="my-gd" @click="itemMenu($event)">
             <!--  :class="faile==1?'as':'bs'" -->
             <div class="jt bs"></div>
@@ -97,7 +98,12 @@ export default {
       //   0 收回  1展示
       faile: 0,
       isShow: false,
-      text: []
+      ishow:false,
+      text: [],
+      // ctrlist:[
+      //   {title:"我创建的歌单（1）",img:"../../img/icon-5.png",chilConter:"我喜欢的音乐",chilImg:"../../img/like2.png",songNum:"35首"},
+      //   {title:"我收藏的歌单（1）",img:"../../img/icon-5.png",chilConter:"这是一个歌单",chilImg:"../../img/like2.png",songNum:"35首"}
+      // ]
     };
   },
   methods: {
@@ -108,6 +114,9 @@ export default {
     unshow() {
       this.isShow = !this.isShow;
     },
+    noshow(){
+      this.ishow = !this.ishow
+    },
     sc() {
       Toast("删除成功！");
     },
@@ -115,18 +124,19 @@ export default {
       var gg = e.currentTarget.children[0].classList;
       if (gg.value.indexOf("bs") != -1) {
         gg.remove("bs");
-        gg.add("as");
+        gg.add("as");       
       } else {
         gg.remove("as");
         gg.add("bs");
       }
+      this.noshow()
     }
   },
   created() {}
 };
 </script>
 
-<style>
+<style scoped>
 /* 动画速度 */
 .animated {
   animation-duration: 0.4s !important;

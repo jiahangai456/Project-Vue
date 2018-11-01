@@ -57,7 +57,7 @@
         <div class="zw">
             <h4>更多内容,开发中......</h4>
         </div>
-    </div>
+    </div> 
 </template>
 <script>
     import HeaderContaier from  "../subcomponents/HeaderContainer.vue"
