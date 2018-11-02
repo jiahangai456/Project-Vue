@@ -1,5 +1,5 @@
 <template>
-    <div class="app_my">
+    <div class="app_my" >
             <div class="my-head">
                 <div >
                     <img src="../../img/yun.png"  style="width:25px;height:25px;">
@@ -47,7 +47,7 @@
             </div> 
         </div>
 
-        <div class="my-gd" @click="itemMenu($event)">
+        <div class="my-gd" @click="itemMenu($event,'xhgd')">
             <!--  :class="faile==1?'as':'bs'" -->
             <div class="jt bs"></div>
             <div class="my-gd-list">
@@ -56,9 +56,9 @@
             </div>
         </div>
         <router-link  to="/mymusic">
-        <ul class="mui-table-view"  v-show="ishow">
+        <ul class="mui-table-view" style="display:none" :class="obj.xhgd==1?'ccs':''">// v-show="ishow"
             <li class="mui-table-view-cell mui-media">
-                <img class="mui-media-object mui-pull-left" src="../../img/like2.png">
+                <img class="mui-media-object mui-pull-left" src="../../img/tj2.jpg">
                 <div class="mui-media-body" style="color:black">
                     我喜欢的音乐
                     <p class='mui-ellipsis'>35首</p>
@@ -66,7 +66,7 @@
             </li>
         </ul>
          </router-link>
-        <div class="my-gd" @click="itemMenu($event)">
+        <div class="my-gd" @click="itemMenu($event,'scgd')">
             <!--  :class="faile==1?'as':'bs'" -->
             <div class="jt bs"></div>
             <div class="my-gd-list">
@@ -100,10 +100,7 @@ export default {
       isShow: false,
       ishow:false,
       text: [],
-      // ctrlist:[
-      //   {title:"我创建的歌单（1）",img:"../../img/icon-5.png",chilConter:"我喜欢的音乐",chilImg:"../../img/like2.png",songNum:"35首"},
-      //   {title:"我收藏的歌单（1）",img:"../../img/icon-5.png",chilConter:"这是一个歌单",chilImg:"../../img/like2.png",songNum:"35首"}
-      // ]
+      obj:{}
     };
   },
   methods: {
@@ -114,22 +111,30 @@ export default {
     unshow() {
       this.isShow = !this.isShow;
     },
-    noshow(){
-      this.ishow = !this.ishow
+    noshow(str){
+      console.log(str);
+      this.obj.str =1;
+        // if(this.obj.str==1){
+        //   this.obj.str = 0;
+        // }else{
+        //   this.obj.str = 1;
+        // }
+      console.log(this.obj);
+      // this.ishow = !this.ishow
     },
     sc() {
       Toast("删除成功！");
     },
-    itemMenu(e) {
+    itemMenu(e,str) {
       var gg = e.currentTarget.children[0].classList;
       if (gg.value.indexOf("bs") != -1) {
         gg.remove("bs");
-        gg.add("as");       
+        gg.add("as");
       } else {
         gg.remove("as");
         gg.add("bs");
       }
-      this.noshow()
+    this.noshow(str);
     }
   },
   created() {}
@@ -137,6 +142,9 @@ export default {
 </script>
 
 <style scoped>
+.ccs{
+  display: block !important;
+}
 /* 动画速度 */
 .animated {
   animation-duration: 0.4s !important;

@@ -44,7 +44,7 @@
     }
     .tj-list .tj-item{
         height: 180px;
-        width: 32%;
+        width: 30%;
         display: flex;
         flex-direction: column;
         justify-content: center;
