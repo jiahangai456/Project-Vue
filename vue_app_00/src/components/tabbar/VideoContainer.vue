@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="app">
         <header-box></header-box>
         <h1>这是视频界面</h1>
 

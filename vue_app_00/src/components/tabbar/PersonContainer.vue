@@ -1,5 +1,5 @@
 <template>
-    <div id="app">
+    <div class="app">
         <!--头部导航-->
         <header-box></header-box>
        <div>

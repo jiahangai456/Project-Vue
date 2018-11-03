@@ -56,11 +56,11 @@
             </div>
         </div>
         <router-link  to="/mymusic">
-        <ul class="mui-table-view" style="display:none" :class="obj.xhgd==1?'ccs':''">// v-show="ishow"
+        <ul class="mui-table-view" style="display:none" :class="obj.xhgd==1?'ccs':''">
             <li class="mui-table-view-cell mui-media">
                 <img class="mui-media-object mui-pull-left" src="../../img/tj2.jpg">
                 <div class="mui-media-body" style="color:black">
-                    我喜欢的音乐
+                    最爱的音乐
                     <p class='mui-ellipsis'>35首</p>
                 </div>
             </li>
@@ -70,10 +70,33 @@
             <!--  :class="faile==1?'as':'bs'" -->
             <div class="jt bs"></div>
             <div class="my-gd-list">
-                <span>我收藏的歌单（1）</span>
+                <span>我收藏的歌单（2）</span>
                 <img src="../../img/icon-5.png" alt="" @click.stop="shezhi('我收藏的歌单',$event)">
             </div>
         </div>
+
+         <router-link  to="/mymusic">
+          <ul class="mui-table-view" style="display:none" :class="obj.scgd==1?'ccs':''">
+              <li class="mui-table-view-cell mui-media">
+                  <img class="mui-media-object mui-pull-left" src="../../img/tj2.jpg">
+                  <div class="mui-media-body" style="color:black">
+                      老王的歌单
+                      <p class='mui-ellipsis'>5首</p>
+                  </div>
+              </li>
+          </ul>
+         </router-link>
+         <router-link  to="/mymusic">
+          <ul class="mui-table-view" style="display:none" :class="obj.scgd==1?'ccs':''">
+              <li class="mui-table-view-cell mui-media">
+                  <img class="mui-media-object mui-pull-left" src="../../img/tj2.jpg">
+                  <div class="mui-media-body" style="color:black">
+                      马云的歌单
+                      <p class='mui-ellipsis'>55首</p>
+                  </div>
+              </li>
+          </ul>
+         </router-link>
         <div class="delete" v-show="isShow" @click="unshow" >
             <div class="delete-bt  animated fadeInUp">
                 <span class="delete-title">{{text}}</span>
@@ -98,9 +121,9 @@ export default {
       //   0 收回  1展示
       faile: 0,
       isShow: false,
-      ishow:false,
+      ishow: false,
       text: [],
-      obj:{}
+      obj: { xhgd: 0, scgd: 0 }
     };
   },
   methods: {
@@ -111,21 +134,22 @@ export default {
     unshow() {
       this.isShow = !this.isShow;
     },
-    noshow(str){
-      console.log(str);
-      this.obj.str =1;
-        // if(this.obj.str==1){
-        //   this.obj.str = 0;
-        // }else{
-        //   this.obj.str = 1;
-        // }
-      console.log(this.obj);
+    noshow(n) {
+      for (var item in this.obj) {
+        if (item == n) {
+          if (this.obj[item] == 0) {
+            this.obj[item] = 1;
+          }else{
+             this.obj[item] = 0;
+          }
+        }
+      }
       // this.ishow = !this.ishow
     },
     sc() {
       Toast("删除成功！");
     },
-    itemMenu(e,str) {
+    itemMenu(e, n) {
       var gg = e.currentTarget.children[0].classList;
       if (gg.value.indexOf("bs") != -1) {
         gg.remove("bs");
@@ -134,7 +158,7 @@ export default {
         gg.remove("as");
         gg.add("bs");
       }
-    this.noshow(str);
+      this.noshow(n);
     }
   },
   created() {}
@@ -142,7 +166,7 @@ export default {
 </script>
 
 <style scoped>
-.ccs{
+.ccs {
   display: block !important;
 }
 /* 动画速度 */

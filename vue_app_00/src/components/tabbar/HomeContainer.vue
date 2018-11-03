@@ -1,7 +1,7 @@
 <template>
     <div class="app">
         <!--主页组件-->
-       <header-box></header-box>
+       <header-box class="a"></header-box>
        <!--头部导航-->
        <div>
             <ul class="ljul">
@@ -102,7 +102,10 @@
    
 			
 </script>
-<style>
+<style >
+    .app{
+        margin-top:65px;
+    }
     hr{
         margin:0;
     }
@@ -141,9 +144,7 @@
  /*第一个高亮*/
    .mui-active{
        font-size: 15.5px;
-       font-weight: bold;
-      
-       
+       font-weight: bold; 
    }
 
     /*九宫格*/

@@ -29,11 +29,15 @@
         },
     }
 </script>
-<style scoped>
+<style>
  .header{
        height: 65px;
        width: 100%;
        background-color:#D43C33;
+       position: fixed;
+       top: 0;
+       left: 0;
+       z-index: 999;
        
    }
    .nr{

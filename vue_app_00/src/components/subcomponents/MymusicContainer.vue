@@ -4,7 +4,7 @@
             <div class="my-head ">
                 <div >
                     <router-link to="my" >
-                    <img src="../../img/return1.png"  style="width:25px;height:25px;">
+                    <img src="../../img/return1.png"  style="width:23px;height:23px;">
                     </router-link>
                     <span>歌单</span>
                     <img src="../../img/bofang.png" style="width:25px;height:25px;">
@@ -39,6 +39,17 @@
                 </div>
             </div>
        </div>
+       <div class="gd-list">
+           <div>
+               <img src="../../img/yinyue.png" alt="" style="width:20px;height:20px;">
+               <span>播放全部</span>
+               <span>(35首)</span>
+           </div>
+           <div>
+               <img src="../../img/duoxuan.png" alt="" style="width:20px;height:20px;">
+               <span>多选</span>
+           </div>
+       </div>
     </div>
 </template>
 <script>
@@ -61,6 +72,29 @@
 .animated {
   animation-duration: 0.6s !important;
 }
+/*歌单列表*/
+.gd-list{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: white;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+
+}
+.gd-list div{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+    
+}
+.gd-list div>span{
+    margin-left: 8px;
+    color: rgb(65, 63, 63);
+    font-size: 15.5px;
+}
+
 /*分享栏*/
 .ab{
     margin-top: 180px;
@@ -70,7 +104,7 @@
     
 }
 .cd{
-    color: white;
+    color: rgb(221, 214, 214);
     font-size: 14px;
     line-height: 25px;
     display: flex;
@@ -104,6 +138,8 @@
     background-image: url(../../img/tj2.jpg);
     background-size: 1600%; 
     background-position: center center;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
 }
 /*总头部*/
 .allhead{
