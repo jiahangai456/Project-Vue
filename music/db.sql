@@ -41,3 +41,16 @@ INSERT INTO tjimg VALUES(
 INSERT INTO tjimg VALUES(
     NULL,"http://127.0.0.1:8000/img/tj7.jpg","陌生人背后的猥琐大叔|电音"
 );
+
+CREATE TABLE mygd(
+    id INT PRIMARY KEY AUTO_INCREMENT,
+    mname VARCHAR(50),
+    mdetail VARCHAR(255)
+);
+INSERT INTO mygd VALUES(NULL,"可不可以","张紫豪 · 可不可以");
+INSERT INTO mygd VALUES(NULL,"爱笑的眼睛","林俊杰 · 她说 概念自选辑");
+INSERT INTO mygd VALUES(NULL,"东西","林俊呈 · 东西");
+INSERT INTO mygd VALUES(NULL,"输了你赢了全世界又如何（Live）","林俊杰 · 梦想声音第二季 第四期");
+INSERT INTO mygd VALUES(NULL,"学猫叫","小潘潘/小峰峰 · 学猫叫");
+INSERT INTO mygd VALUES(NULL,"陷阱","王北车 · 陷阱 · 《再见班花》 电影主题曲");
+INSERT INTO mygd VALUES(NULL,"她说","林俊杰 · 她说 概念自选辑");
