@@ -51,18 +51,19 @@
             </div>
        </div>
     <div class="f-gdlist">
-
        <ul class="mui-table-view gd-top" >
-        <li class="mui-table-view-cell mui-media" v-for="item of list" :key="item.id">
-                <span class="mui-media-object mui-pull-left" style="color:gray;">{{item.id}}</span>
-                <div class="mui-media-body a1">
-                    <div>
-                    {{item.mname}}
-                    <p class='mui-ellipsis'>{{item.mdetail}}</p>
+           <router-link to="/mdetail">
+                <li class="mui-table-view-cell mui-media" v-for="item of list" :key="item.id">
+                    <span class="mui-media-object mui-pull-left" style="color:gray;">{{item.id}}</span>
+                    <div class="mui-media-body a1">
+                        <div style="color:black;">
+                            {{item.mname}}
+                            <p class='mui-ellipsis'>{{item.mdetail}}</p>
+                        </div>
+                        <img src="../../img/shenglue.png" alt="" style="width:25px;height:25px">
                     </div>
-                    <img src="../../img/shenglue.png" alt="" style="width:25px;height:25px">
-                </div>
-        </li>
+                </li>
+            </router-link>
         </ul>
     </div>
     </div>
@@ -159,6 +160,7 @@ import {Toast} from "mint-ui"
     flex-direction: column;
     align-items: center;
 }
+
 /*头部底下个人*/
 .gern-head{
    float: left; 
