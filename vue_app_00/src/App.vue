@@ -62,5 +62,7 @@ export default{
 :-ms-input-placeholder { /* Internet Explorer 10+ */
     color:rgba(255, 255, 255, 0.581);
 }
-    
+.app-container{
+    z-index: 10;
+}
 </style>

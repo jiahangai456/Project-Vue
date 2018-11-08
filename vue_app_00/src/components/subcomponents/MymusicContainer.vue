@@ -205,7 +205,6 @@ import {Toast} from "mint-ui"
 .my-head>div {
   /*margin-top:30px;*/
   padding-top: 20px;
-
   margin-left: 3%;
   margin-right: 3%;
   color: white;
